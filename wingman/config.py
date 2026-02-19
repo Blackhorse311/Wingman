@@ -19,10 +19,17 @@ class GitHubConfig:
 
 
 @dataclass(frozen=True)
+class ForgeMod:
+    name: str
+    id: int
+    slug: str
+
+
+@dataclass(frozen=True)
 class ForgeConfig:
     email: str
     password: str
-    mods: dict[str, int]  # mod_name -> mod_id
+    mods: list[ForgeMod]
     check_interval_minutes: int = 60
 
 
@@ -113,7 +120,10 @@ def load_config(config_path: str | Path | None = None) -> WingmanConfig:
         forge=ForgeConfig(
             email=_env("FORGE_EMAIL"),
             password=_env("FORGE_PASSWORD"),
-            mods=forge.get("mods", {}),
+            mods=[
+                ForgeMod(name=name, id=info["id"], slug=info["slug"])
+                for name, info in forge.get("mods", {}).items()
+            ],
             check_interval_minutes=forge.get("check_interval_minutes", 60),
         ),
         reddit=RedditConfig(

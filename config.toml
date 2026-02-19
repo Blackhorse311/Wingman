@@ -12,9 +12,9 @@ check_interval_minutes = 60
 check_interval_minutes = 60
 
 [forge.mods]
-BotMind = 2595
-KeepStartingGear = 2450
-ForcibleEntry = 2501
+BotMind = {id = 2595, slug = "blackhorse311-botmind"}
+KeepStartingGear = {id = 2450, slug = "keep-starting-gear"}
+ForcibleEntry = {id = 2501, slug = "blackhorse311-forcibleentry"}
 
 [reddit]
 enabled = false             # Set to true when r/AIEmpires exists
