@@ -1,0 +1,30 @@
+[general]
+database_path = "wingman.db"
+log_level = "INFO"
+first_run_notify = false    # false = seed existing items silently on first run
+
+[github]
+owner = "Blackhorse311"
+repos = ["BotMind", "KeepStartingGear", "AIEmpires", "Blackhorse311-ForcibleEntry"]
+check_interval_minutes = 60
+
+[forge]
+check_interval_minutes = 60
+
+[forge.mods]
+BotMind = 2595
+KeepStartingGear = 2450
+ForcibleEntry = 2501
+
+[reddit]
+enabled = false             # Set to true when r/AIEmpires exists
+subreddit = "AIEmpires"
+user_agent = "Wingman/1.0 by Blackhorse311"
+check_interval_minutes = 30
+
+[notifications]
+smtp_server = "smtp.gmail.com"
+smtp_port = 587
+
+[triage]
+model = "claude-sonnet-4-20250514"
